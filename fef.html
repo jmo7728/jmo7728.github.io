@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Ovalles | Software Engineer</title>
+  <meta name="description" content="Portfolio of John Ovalles, Computer Science student at NYU." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue1: #0f172a;
+      --blue2: #1e3a8a;
+      --blue3: #2563eb;
+      --accent: #38bdf8;
+      --text: #e2e8f0;
+      --glass: rgba(255,255,255,0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, var(--blue1), var(--blue2), var(--blue3));
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: var(--accent); }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem 2rem;
+    }
+
+    nav strong {
+      font-family: "JetBrains Mono", monospace;
+      color: var(--accent);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    nav a {
+      position: relative;
+      font-weight: 500;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .code {
+      font-family: "JetBrains Mono", monospace;
+      color: var(--accent);
+    }
+
+    .hero p {
+      margin: 1.2rem 0 2rem;
+      color: #cbd5f5;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #38bdf8, #2563eb);
+      color: white;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(56,189,248,0.4);
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: 14px;
+      border: 2px solid rgba(255,255,255,0.2);
+      transition: 0.4s;
+    }
+
+    .hero img:hover {
+      transform: scale(1.03);
+    }
+
+    /* SECTION */
+    section {
+      margin: 5rem 0;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      font-family: "JetBrains Mono", monospace;
+      color: var(--accent);
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      padding: 1.7rem;
+      border-radius: 14px;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.35s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.01);
+      border-color: var(--accent);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+
+    /* SKILLS */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .skill {
+      font-family: "JetBrains Mono", monospace;
+      background: rgba(56,189,248,0.12);
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      border: 1px solid rgba(56,189,248,0.3);
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      background: rgba(56,189,248,0.25);
+      transform: scale(1.05);
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 5rem;
+      padding: 2rem;
+      text-align: center;
+      color: #94a3b8;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <strong>&lt;John /&gt;</strong>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div>
+        <h1>
+          <span class="code">const</span> John = {<br>
+          &nbsp;&nbsp;role: "Software Engineer",<br>
+          &nbsp;&nbsp;focus: "AI + Full Stack + DevSecOps"<br>
+          };
+        </h1>
+
+        <p>
+          Computer Science student at NYU passionate about building scalable systems,
+          intelligent tools, and impactful technology. I love solving hard problems
+          and turning ideas into real-world software.
+        </p>
+
+        <a class="btn" href="#contact">Let's Connect</a>
+      </div>
+
+      <div>
+        <img src="profile.jpg" alt="John Ovalles" />
+      </div>
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>// Experience</h2>
+
+      <div class="card">
+        <h3>Software Engineering Intern — DevSecOps / Full Stack</h3>
+        <p><strong>Lockheed Martin | Summer 2025</strong></p>
+        <ul>
+          <li>Resolved 1,000+ security and code defects across large-scale systems.</li>
+          <li>Optimized memory and macro performance by 50%.</li>
+          <li>Built automated pipelines, testing, and GUI tools.</li>
+        </ul>
+      </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>// Projects</h2>
+
+      <div class="card">
+        <h3>Video Object Detection</h3>
+        <p>Real-time detection using YOLOv8, SAM-TRACK, and TensorFlow.</p>
+      </div>
+
+      <div class="card">
+        <h3>RAG Chatbot</h3>
+        <p>Serverless AI chatbot for analyzing SEC filings.</p>
+      </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>// Skills</h2>
+
+      <div class="skills">
+        <span class="skill">Java</span>
+        <span class="skill">Python</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">React</span>
+        <span class="skill">Node</span>
+        <span class="skill">AWS</span>
+        <span class="skill">MongoDB</span>
+        <span class="skill">SQL</span>
+        <span class="skill">TensorFlow</span>
+        <span class="skill">C/C++</span>
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>// Contact</h2>
+
+      <div class="card">
+        <p>Email: <a href="mailto:jmo7728@nyu.edu">jmo7728@nyu.edu</a></p>
+        <p>GitHub: <a href="https://github.com/jmo7728">github.com/jmo7728</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/john-ovalles-m">linkedin.com/in/john-ovalles-m</a></p>
+      </div>
+
+    </section>
+
+
+  </div>
+
+  <footer>
+    © 2026 John Ovalles
+  </footer>
+
+</body>
+</html>
